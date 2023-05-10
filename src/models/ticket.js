@@ -2,9 +2,10 @@ const pool = require("../config/db");
 
 
 
-const ticketModels = () => {
+const ticketModels = (data) => {
+    const {sort, search, searchBy} = data
     return (
-        pool.query(`SELECT ticket.*, users.photo, users.name, users.id AS id_users FROM ticket JOIN users ON ticket.users_id=users.id WHERE ticket.deleted_at IS NULL`)
+        pool.query(`SELECT ticket.*, users.photo, users.name, users.id AS id_users FROM ticket JOIN users ON ticket.users_id=users.id WHERE ticket.deleted_at IS NULL AND ticket.${searchBy} ILIKE '%${search}' ORDER BY ticket.to_country ${sort}`)
     )
 }
 

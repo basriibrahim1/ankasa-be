@@ -4,9 +4,16 @@ const { ticketModels, ticketIdModels } = require("../models/ticket");
 
 const ticketController = {
     getTicketController: async (req, res) => {
+        const data ={
+            page: req.query.page || 1,
+            sort: req.query.sort || 'ASC',
+            searchBy: req.query.searchBy || 'to_country',
+            search: req.query.search || ''
+        }
+
         try {
 
-            const result = await ticketModels()
+            const result = await ticketModels(data)
             res.status(200).json({
             message: "ticket",
             data: result.rows,

@@ -54,6 +54,7 @@ const userController = {
             await updateUserModels(data, id);
             res.status(200).json({
               message: "User has been updated",
+              data
             });
           }
         } catch (error) {

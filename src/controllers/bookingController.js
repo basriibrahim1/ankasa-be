@@ -1,4 +1,4 @@
-const { ticketBookingModels, bookingpPayloadModels, bookingInsertModels } = require("../models/bookingModels");
+const { ticketBookingModels, bookingpPayloadModels, bookingInsertModels, bookingIdModels, bookingUpdateModels } = require("../models/bookingModels");
 
 
 const booking = {
@@ -35,6 +35,44 @@ const booking = {
         }
     },
 
+    bookingIdController: async (req, res) => {
+      let id = req.params.id;
+  
+      try {
+        let result = await bookingIdModels(id);
+  
+        res.status(200).json({
+          message: `Booking with id ${id}`,
+          data: result.rows,
+        });
+      } catch (error) {
+        res.status(400).json({
+          message: "Booking not found"
+        });
+      }
+  },
+
+      bookingUpdateController: async (req, res) => {
+          const id = req.params.id
+
+        try {
+          
+          let result = await bookingUpdateModels(id);
+          
+          let data = await bookingIdModels(id)
+
+
+          res.status(200).json({
+            message: "Payment success",
+            data: data.rows,
+          });
+        } catch (error) {
+          res.status(400).json({
+            message: "Booking not found"
+          });
+        }
+    },
+
 
     bookingInsertController: async (req, res) => {
         try {
@@ -50,11 +88,13 @@ const booking = {
             }
           
 
-          let result = await bookingInsertModels(data);
+          const result = await bookingInsertModels(data);
+          console.log(result)
     
           res.status(200).json({
             message: "booking success",
-            data: result,
+            ...data,
+            id: result
           });
         } catch (error) {
           res.status(401).json({
