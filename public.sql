@@ -43,6 +43,9 @@ CREATE TABLE ticket(
 ALTER TABLE ticket_booking ADD status VARCHAR DEFAULT 'Waiting for payment';
 
 
+UPDATE ticket_booking SET status='E-Ticket Issued' WHERE ticket_booking.id = 1;
+
+
 CREATE TABLE ticket_booking(
     id SERIAL PRIMARY KEY,
     users_id VARCHAR REFERENCES users(id),
