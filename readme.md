@@ -2,7 +2,7 @@
 Our hiring app API is built using ExpressJS and NodeJS, and is designed to connect Employers with Employees. The app features two distinct user roles - Employees and Employers - and includes key information about each user's experience, skills, and portfolio.
 
 # Database Schema
-![Database Schema](/schema/db_diagram.png)
+![Database Schema](https://github.com/basriibrahim1/ankasa-be/blob/main/src/ss/schema.PNG)
 
 # ENV Keys
 ```bash
