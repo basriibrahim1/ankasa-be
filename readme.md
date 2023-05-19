@@ -6,6 +6,31 @@ Flight With Us.
 # Database Schema
 ![Database Schema](https://github.com/basriibrahim1/ankasa-be/blob/main/src/ss/schema.PNG)
 
+## Built with
+
+- NodeJS
+- ExpressJS
+- PostgreSQL
+
+## Packages used
+
+- argon2: ^0.30.3
+- body-parser: ^1.20.1
+- cloudinary: ^1.35.0
+- cookie-parser: ^1.4.6
+- cors: ^2.8.5
+- dotenv: ^16.0.3
+- express: ^4.18.2
+- jsonwebtoken: ^9.0.0
+- mime-types: ^2.1.35
+- morgan: ^1.10.0
+- multer: ^1.4.5-lts.1
+- nodemailer: ^6.9.1
+- nodemon: ^2.0.21
+- pg: ^8.9.0
+- uuid: ^9.0.0
+- xss-clean: ^0.1.1
+
 # ENV Keys
 ```bash
 DB_USER = 
